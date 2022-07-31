@@ -220,9 +220,6 @@ class Game():
         
         outer_gate_y = random_y + 4
         inner_gate_x = random_x + chestWidth - 4 
-        #remove eventual gate blockers
-        self.board[random_x - 1][outer_gate_y] = " "
-        self.board[inner_gate_x][random_y] = " "
         #add gates to chest container
         self.board[random_x][random_y + 4] = "="
         self.board[inner_gate_x][random_y + 4] = "="
