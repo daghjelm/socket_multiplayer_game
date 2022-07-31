@@ -217,9 +217,16 @@ class Game():
             self.board[random_x + 3][random_y + 2 + y] = "#"
             #inner right column
             self.board[random_x + 2 + innerChestWidth][random_y + 2 + y] = "#"
+        
+        outer_gate_y = random_y + 4
+        inner_gate_x = random_x + chestWidth - 4 
+        #remove eventual gate blockers
+        self.board[random_x - 1][outer_gate_y] = " "
+        self.board[inner_gate_x][random_y] = " "
+        #add gates to chest container
         self.board[random_x][random_y + 4] = "="
-        self.board[random_x + chestWidth - 4][random_y + 4] = "="
-        self.board[random_x + 7][random_y + 4] = "*"
+        self.board[inner_gate_x][random_y + 4] = "="
+        # self.board[random_x + 7][random_y + 4] = "*"
         return (random_x, random_y)
 
     def getRandomChestPos(self, width, height):
