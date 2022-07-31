@@ -312,11 +312,11 @@ class Game():
         for i in range(amount):
             xpos = random.randint(2, self.width - 1)
             ypos = random.randint(2, self.height - 1)
-            #position already has obstacle or
-            while(self.board[xpos][ypos] == "#" or (
-            #position is within the chest
-            (xpos > self.chest_x and xpos < self.chest_x + 15) and
-            (ypos > self.chest_y and ypos < self.chest_y + 9))):
+            has_obstacle = self.board[xpos][ypos] == "#"
+            within_chest = ((xpos > self.chest_x and xpos < self.chest_x + 15) and 
+                            (ypos > self.chest_y and ypos < self.chest_y + 9))
+
+            while (has_obstacle or within_chest):
                 #random anew
                 xpos = random.randint(2, self.width - 1)
                 ypos = random.randint(2, self.height - 1)
