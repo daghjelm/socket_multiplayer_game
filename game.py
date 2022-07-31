@@ -315,8 +315,9 @@ class Game():
             has_obstacle = self.board[xpos][ypos] == "#"
             within_chest = ((xpos > self.chest_x and xpos < self.chest_x + 15) and 
                             (ypos > self.chest_y and ypos < self.chest_y + 9))
+            is_blocking_gate = self.board[xpos + 1][ypos] == "="
 
-            while (has_obstacle or within_chest):
+            while (has_obstacle or within_chest or is_blocking_gate):
                 #random anew
                 xpos = random.randint(2, self.width - 1)
                 ypos = random.randint(2, self.height - 1)
